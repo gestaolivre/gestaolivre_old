@@ -1,0 +1,12 @@
+<h2>Empresa List</h2>
+
+<ul>
+  <li *ngFor="#empresa of empresas">
+    <a
+      [routerLink]="['EmpresaDetail', { cnpj: empresa.cnpj }]">
+      <strong>{{empresa.cnpj}}</strong>
+      -
+      {{empresa.razao_social}}
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Gestaolivre</title>
+  <base href="/">
+  {{content-for 'head'}}
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="vendor/ng2-material/dist/ng2-material.css">
+  <link rel="stylesheet" href="vendor/ng2-material/dist/font.css">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Service worker support is disabled by default.
+       Install the worker script and uncomment to enable.
+       Only enable service workers in production.
+  <script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/worker.js').catch(function(err) {
+        console.log('Error installing service worker: ', err);
+      });
+    }
+  </script>
+  -->
+</head>
+<body>
+  <gestaolivre-app>
+    <div class="app-loader">
+      <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+        </svg>
+      </div>
+    </div>
+  </gestaolivre-app>
+
+  <script src="vendor/es6-shim/es6-shim.js"></script>
+  <script src="vendor/systemjs/dist/system-polyfills.js"></script>
+  <script src="vendor/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="vendor/systemjs/dist/system.src.js"></script>
+  <script src="vendor/rxjs/bundles/Rx.js"></script>
+
+  <script src="vendor/angular2/bundles/angular2.dev.js"></script>
+  <script src="vendor/angular2/bundles/http.dev.js"></script>
+  <script src="vendor/angular2/bundles/router.dev.js"></script>
+
+  <script type="text/javascript" src="/vendor/jwt-decode/build/jwt-decode.js"></script>
+
+  <script src="thirdparty/libs.js"></script>
+  <script>
+    System.config({
+      defaultJSExtensions: true,
+      packages: {
+        angular2: { defaultExtension: false },
+        rxjs: { defaultExtension: false },
+        app: {
+          format: 'register',
+          defaultExtension: 'js'
+        },
+        'ng2-material': {
+            format: 'register'
+        },
+        'angular2-jwt': {
+            format: 'register'
+        }
+      },
+      map: {
+        'angular2-jwt': 'vendor/angular2-jwt/angular2-jwt'
+      },
+      paths: {
+        'app/*': 'app/*',
+        'ng2-material/*': 'vendor/ng2-material/*'
+      }
+    });
+    System.import('app.js').then(null, console.error.bind(console));
+  </script>
+</body>
+</html>

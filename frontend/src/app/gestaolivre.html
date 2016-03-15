@@ -1,0 +1,5 @@
+<div class="container">
+  <div *ngIf="!tokenExpired">Sua sessão expira em {{ (tokenExpires / 1000).toFixed() }} s.</div>
+  <div *ngIf="tokenExpired">Sua sessão está inativa.</div>
+  <router-outlet></router-outlet>
+</div>

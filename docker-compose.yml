@@ -1,0 +1,53 @@
+version: "2"
+services:
+  postgres:
+    restart: always
+    image: postgres:9.5
+    volumes_from:
+      - data
+    ports:
+      - "5432:5432"
+
+  data:
+    restart: always
+    image: postgres:9.5
+    volumes:
+      - /var/lib/postgresql
+    command: "true"
+
+  backend:
+    restart: always
+    build: ./backend
+    volumes:
+      - ./backend:/usr/src/app
+    expose:
+      - "8000"
+    env_file: .env
+    links:
+      - postgres:postgres
+    command: /usr/local/bin/gunicorn gestaolivre.wsgi:application -w 2 -b :8000 --reload
+
+  frontend:
+    restart: always
+    build: ./frontend
+    volumes:
+      - ./frontend:/usr/src/ng2-app
+    expose:
+      - "4200"
+    ports:
+      - "49152:49152"
+    links:
+      - backend:backend
+    command: ng serve --proxy=http://backend:8000
+
+  nginx:
+    restart: always
+    build: ./nginx/
+    ports:
+      - "80:80"
+    volumes_from:
+      - backend
+      - frontend
+    links:
+      - backend:backend
+      - frontend:frontend

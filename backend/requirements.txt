@@ -1,0 +1,57 @@
+#
+# Common dependencies go here
+#
+
+# Latest Django
+Django==1.9.4
+gunicorn==19.4.5
+
+brazil-types==0.0.3
+django-brazil-fields==0.0.3
+
+# Configuration
+django-configurations==1.0
+dj-database-url==0.4.0
+dj-email-url==0.0.4
+django-cache-url==1.0.0
+
+# For the postgresql persistance stores
+psycopg2==2.6.1
+
+# API
+djangorestframework==3.3.2
+django-cors-headers==1.1.0
+djangorestframework-jwt==1.7.2
+
+# Models
+django-mptt==0.8.3
+
+# Forms
+django-mptt-admin==0.3.3
+django-widget-tweaks==1.4.1
+
+# Time zones support
+python-dateutil==2.5.0
+pytz==2015.7
+
+# Compress and Compile JS, CSS, Less, Sass
+django_compressor==2.0
+
+# Reporting
+reportlab==3.3.0
+
+# OFX
+ofxparse==0.14
+
+sped==0.4.1
+beautifulsoup4==4.4.1
+
+#
+# Development
+#
+flake8==2.5.4
+flake8-pep257==1.0.5
+mccabe==0.2.1
+pep257==0.7.0
+pep8==1.5.7
+pyflakes==0.8.1

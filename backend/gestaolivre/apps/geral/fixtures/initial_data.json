@@ -1,0 +1,1 @@
+[{"model": "geral.usuario", "pk": "f11307e2-a631-4b31-ac72-1be816542ca9", "fields": {"password": "pbkdf2_sha256$24000$XNlpJ8Mdqg8g$h2TtqjedPaDi/lXpTzMC1/0kd23AJ7/SSwBx2x6O5yU=", "last_login": null, "data": null, "nome": "Administrador", "email": "admin@gestaolivre.org", "is_active": true, "is_admin": true, "empresa": []}}]

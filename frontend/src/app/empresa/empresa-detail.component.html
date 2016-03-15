@@ -1,0 +1,13 @@
+<div *ngIf="empresa">
+  <h3>"{{editrazao_social}}"</h3>
+  <div>
+    <label>CNPJ:</label>
+    {{empresa.cnpj}}
+  </div>
+  <div>
+    <label>Razão Social:</label>
+    <input [(ngModel)]="editrazao_social" placeholder="Razão Social"/>
+  </div>
+  <button (click)="save()">Save</button>
+  <button (click)="cancel()">Cancel</button>
+</div>

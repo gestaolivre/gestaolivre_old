@@ -1,0 +1,8 @@
+{
+    "Python": {
+        "python": '~/.virtualenvs/gestaolivre/bin/python',
+        "pythonExtraPaths": [
+            '~/.virtualenvs/gestaolivre/lib/python3.5/site-packages',
+        ]
+    },
+}
