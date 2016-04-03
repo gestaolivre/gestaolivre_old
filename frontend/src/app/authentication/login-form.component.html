@@ -1,0 +1,38 @@
+<form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+  <md-content class="md-padding" layout="row" layout-wrap layout-align="center center">
+    <div flex="50" layout="column" flex-xs="100">
+      <md-card>
+        <md-toolbar class="md-hero" layout="row" layout-align="center center" layout-align-gt-md="end end">
+          <i class="secret-project" md-icon>person</i>
+        </md-toolbar>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Login</span>
+            <div>{{ diagnostic }}</div>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Email</label>
+              <input md-input required [(ngModel)]="model.email" ngControl="email" #email="ngForm">
+              <div [md-messages]="email" role="alert">
+                <div md-message="required">Informe seu email.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Password</label>
+              <input md-input type="password" [(ngModel)]="model.password" ngControl="password" #password="ngForm">
+            </md-input-container>
+          </div>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <button md-button type="submit" [disabled]="!loginForm.valid">Login</button>
+          <a md-button href="/signup">Signup</a>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </md-content>
+</form>

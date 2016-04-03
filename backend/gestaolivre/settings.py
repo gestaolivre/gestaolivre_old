@@ -21,7 +21,7 @@ def jwt_response_payload_handler(token, user=None, request=None):
     print(token)
     return {
         'token': token,
-        'empresas': '10711130000196'
+        'empresas': [empresa.cnpj.format('r') for empresa in user.empresa.all()]
     }
 
 

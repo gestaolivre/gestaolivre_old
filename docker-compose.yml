@@ -22,7 +22,11 @@ services:
       - ./backend:/usr/src/app
     expose:
       - "8000"
-    env_file: .env
+    environment:
+      - DJANGO_SETTINGS_MODULE=gestaolivre.settings
+      - DJANGO_CONFIGURATION=Dev
+      - DJANGO_SECRET_KEY=changeme
+      - DATABASE_URL=postgres://postgres@postgres:5432/postgres
     links:
       - postgres:postgres
     command: /usr/local/bin/gunicorn gestaolivre.wsgi:application -w 2 -b :8000 --reload

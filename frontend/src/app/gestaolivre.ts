@@ -8,7 +8,7 @@ import {Observable} from 'rxjs/Rx';
 
 import {LoggedInRouterOutlet} from './LoggedInOutlet';
 import {Home} from './home/home';
-import {Login} from './authentication/login';
+import {LoginComponent} from './authentication/login';
 import {Signup} from './authentication/signup';
 import {contentHeaders} from './common/headers';
 import {EmpresaRoot} from './empresa/empresa-root.component';
@@ -23,7 +23,7 @@ import {EmpresaRoot} from './empresa/empresa-root.component';
 @RouteConfig([
   { path: '/', redirectTo: ['/Home'] },
   { path: '/home', component: Home, as: 'Home' },
-  { path: '/login', component: Login, as: 'Login' },
+  { path: '/login', component: LoginComponent, as: 'Login' },
   { path: '/signup', component: Signup, as: 'Signup' },
   { path: '/empresa/...', component: EmpresaRoot, as: 'Empresa' }
 ])
